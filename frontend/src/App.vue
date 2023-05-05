@@ -3,8 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-  </header>
+  <main>
+    
+  </main>
   <RouterView />
 </template>
 
