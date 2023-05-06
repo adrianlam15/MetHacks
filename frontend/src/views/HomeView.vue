@@ -1,60 +1,13 @@
 <script setup>
 import FeaturesView from '../views/FeaturesView.vue'
 import AboutView from '../views/AboutView.vue'
-import GenerateCardsView from '../views/GenerateCardsView.vue'
+import NavBar from '../components/NavBar.vue'
 </script>
 
 <template>
   <div class="bg-white max-h-screen max-w-screen">
     <header class="absolute inset-x-0 top-0 z-50">
-      <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div class="flex lg:flex-1">
-          <RouterLink to="/" class="-m-1.5 p-1.5">
-            <span class="sr-only">Flash Cards Not Me!</span>
-            <img
-              class="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
-          </RouterLink>
-        </div>
-        <div class="flex lg:hidden">
-          <button
-            type="button"
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          >
-            <span class="sr-only">Open main menu</span>
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <a v-smooth-scroll href="#generate" class="text-sm font-semibold leading-6 text-gray-900"
-            >Generate</a
-          >
-          <a href="#features" v-smooth-scroll class="text-sm font-semibold leading-6 text-gray-900"
-            >Features</a
-          >
-          <a v-smooth-scroll href="#about" class="text-sm font-semibold leading-6 text-gray-900"
-            >About</a
-          >
-        </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <!-- REPLACE LATER -->
-        </div>
-      </nav>
+      <NavBar/>
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div class="lg:hidden" role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
@@ -125,7 +78,7 @@ import GenerateCardsView from '../views/GenerateCardsView.vue'
     <kinesis-container class="relative isolate px-6 pt-14 lg:px-16">
       <kinesis-element>
       <div
-        class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        class="absolute inset-x-0 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true"
       >
         <div
@@ -158,22 +111,21 @@ import GenerateCardsView from '../views/GenerateCardsView.vue'
             Make your flash cards with <span class="transition ease-in-out duration-100 font-bold text-indigo-600 hover:text-fuchsia-500">ease</span>.
           </h1>
           <img src="../assets/fun-underline.svg" class="ml-32 w-28" />
-          <p class="mt-6 text-lg leading-8 text-gray-600">
+          <p class="pt-6 text-lg leading-8 text-gray-600">
             Flash cards, not me! We know that making flash cards can be a hassle, so we made it
             easier for you. Our flashcard generation tool allows you to create flashcards based off
             of the learning objectives of your course. All you need is a PDF of the content you want
             to study.
           </p>
-          <div class="mt-10 flex items-center justify-start gap-x-6">
-            <a
-              v-smooth-scroll
-              href="#generate"
-              class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >Try it out</a
+          <div class="pt-10 flex items-center justify-start gap-x-6">
+            <RouterLink to="/learn"
+            class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
+              Try it out
+            </RouterLink>
             <a
               v-smooth-scroll
-              href="#about"
+              href="#features"
               class="transition hover:-translate-y-1 text-sm font-semibold leading-6 text-gray-900"
               >Learn more <span aria-hidden="true">→</span></a
             >
@@ -183,7 +135,6 @@ import GenerateCardsView from '../views/GenerateCardsView.vue'
     </kinesis-element>
     </kinesis-container>
     <FeaturesView />
-    <GenerateCardsView />
     <AboutView />
   </div>
 </template>

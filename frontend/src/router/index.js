@@ -10,9 +10,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/generate',
-      name: 'generate',
-      component: () => import('../views/GenerateCardsView.vue')
+      path: '/learn',
+      name: 'learn',
+      component: () => import('../views/LearnView.vue')
     },
     {
       path: '/:catchAll(.*)',
