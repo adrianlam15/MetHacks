@@ -23,7 +23,7 @@ const features = [
 </script>
 
 <template>
-  <div id="generate" class="relative isolate overflow-hidden sm:py-32 h-screen">
+  <div id="generate" class="relative isolate overflow-hidden sm:py-32">
     <div
       class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
       aria-hidden="true"
@@ -124,8 +124,8 @@ const features = [
             <img :class="{'border-rose-500' : error,
           'border-emerald-500' : uploadSuccess}" src="../assets/add_files_re_v09g.svg" class="w-48 h-48 border-2 rounded-xl p-4" alt="Add files" />
           </label>
-          <p v-if="error" class="text-rose-500 font-medium text-md">Error uploading PDf file.</p>
-          <p v-if="uploadSuccess" class="text-emerald-500 font-medium text-md">File uploaded successfully.</p>
+          <p v-if="error" class="text-rose-500 font-medium text-md">Error uploading PDf file!</p>
+          <p v-if="uploadSuccess" class="text-emerald-500 font-medium text-md">File uploaded successfully!</p>
           <input
             id="pdf"
             class="ml-28 font-medium py-2 px-4 focus:outline-none text-gray-600 flex"
@@ -165,16 +165,15 @@ const features = [
       </div>
     </div>
   </div>
-  <!-- <div class="flashcard" :class="{'flipped': flipped}" @click="flip">
-    <h1 v-if="!flipped">
-      {{ front }}
-    </h1>
-    <h1 v-if="flipped">
-      {{ back }}
-    </h1>
-  </div> -->
+  <span class="animate-ping bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
+  <span class="bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
+  <a class="animate-bounce" href="#flashcards" v-smooth-scroll>
+    <img v-if="flashcards" src="../assets/undraw_straight-arrow.svg" class="mb-10 p-1 h-10 w-10 rotate-180 m-auto border-2 border-gray-600 rounded-full" alt="Arrow" />
+  </a>
   <hr class="w-3/4 m-auto border-gray-400"/>
-  <FlashCards :flashcards="flashcards"/>
+  <div v-if="flashcards">
+    <FlashCards :flashcards="flashcards"/>
+  </div>
 </template>
 
 <script>
@@ -187,10 +186,8 @@ export default {
       isLoading: false,
       uploadSuccess: false,
       error: false,
-      front: "QUESTION",
-      back: "ANSWER",
       flipped: false,
-      flashcards: []
+      flashcards: null
     }
   },
   methods: {
