@@ -2,7 +2,7 @@
 import in_no_time from '../assets/in_no_time_-6-igu.svg'
 import check from '../assets/check.svg'
 import cloud_upload from '../assets/cloud-upload.svg'
-
+import FlashCards from '../views/FlashCardsView.vue'
 const features = [
   {
     name: 'Valid extension name.',
@@ -166,6 +166,15 @@ const features = [
       </div>
     </div>
   </div>
+  <div class="flashcard" :class="{'flipped': flipped}" @click="flip">
+    <h1 v-if="!flipped">
+      {{ front }}
+    </h1>
+    <h1 v-if="flipped">
+      {{ back }}
+    </h1>
+  </div>
+  <FlashCards/>
 </template>
 
 <script>
@@ -174,10 +183,16 @@ export default {
     return {
       isLoading: false,
       uploadSuccess: false,
-      error: false
+      error: false,
+      front: "QUESTION",
+      back: "ANSWER",
+      flipped: false
     }
   },
   methods: {
+    flip() {
+      this.flipped = !this.flipped
+    },
     submitForm() {
       const formData = new FormData()
       this.isLoading = true
