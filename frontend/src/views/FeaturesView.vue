@@ -66,7 +66,7 @@
               Make flash cards faster.
             </h2>
             <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Spend more time reviewing than <span class="text-indigo-600">making</span>.
+              Spend more time <span class="text-indigo-600">reviewing </span>than making.
             </p>
             <p class="mt-6 text-lg leading-8 text-gray-600">
               With our flash card generation tool, we can help you save time and effort.

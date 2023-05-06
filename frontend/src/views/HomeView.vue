@@ -1,13 +1,11 @@
 <script setup>
 import FeaturesView from '../views/FeaturesView.vue'
 import AboutView from '../views/AboutView.vue'
-import NavBar from '../components/NavBar.vue'
 </script>
 
 <template>
   <div class="bg-white max-h-screen max-w-screen">
-    <header class="absolute inset-x-0 top-0 z-50">
-      <NavBar/>
+    <header class="absolute inset-x-0 top-0">
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div class="lg:hidden" role="dialog" aria-modal="true">
         <!-- Background backdrop, show/hide based on slide-over state. -->
@@ -110,7 +108,7 @@ import NavBar from '../components/NavBar.vue'
           <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             Make your flash cards with <span class="transition ease-in-out duration-100 font-bold text-indigo-600 hover:text-fuchsia-500">ease</span>.
           </h1>
-          <img src="../assets/fun-underline.svg" class="ml-32 w-28" />
+          <img src="../assets/fun-underline.svg" class="w-28" />
           <p class="pt-6 text-lg leading-8 text-gray-600">
             Flash cards, not me! We know that making flash cards can be a hassle, so we made it
             easier for you. Our flashcard generation tool allows you to create flashcards based off
@@ -127,7 +125,7 @@ import NavBar from '../components/NavBar.vue'
               v-smooth-scroll
               href="#features"
               class="transition hover:-translate-y-1 text-sm font-semibold leading-6 text-gray-900"
-              >Learn more <span aria-hidden="true">→</span></a
+              >About <span aria-hidden="true">→</span></a
             >
           </div>
         </div>
@@ -138,3 +136,9 @@ import NavBar from '../components/NavBar.vue'
     <AboutView />
   </div>
 </template>
+
+<style scoped>
+img {
+  margin-left: 138px;
+}
+</style>
