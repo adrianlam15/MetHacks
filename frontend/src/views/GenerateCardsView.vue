@@ -23,7 +23,7 @@ const features = [
 </script>
 
 <template>
-  <div id="features" class="relative isolate overflow-hidden py-24 sm:py-32">
+  <div id="generate" class="relative isolate overflow-hidden py-24 sm:py-32">
     <div
       class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
       aria-hidden="true"
@@ -121,9 +121,10 @@ const features = [
         >
           <label for="pdf" class="font-bold"> Upload your PDF: </label>
           <input
-          :class="{'border-rose-500' : error, 'border-gray-900' : !error}"
+          :class="{'border-rose-500' : error, 'border-emerald-500' : uploadSuccess,
+        'border-indigo-700' : !error && !uploadSuccess}"
             id="pdf"
-            class="font-medium py-2 px-4 border-2 border-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            class="font-medium py-2 px-4 border-2 shadow-md rounded-lg focus:outline-none"
             type="file"
             name="pdf"
             ref="pdf"
