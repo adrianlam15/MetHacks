@@ -121,6 +121,7 @@ const features = [
         >
           <label for="pdf" class="font-bold"> Upload your PDF: </label>
           <input
+          :class="{'border-rose-500' : error, 'border-gray-900' : !error}"
             id="pdf"
             class="font-medium py-2 px-4 border-2 border-gray-900 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             type="file"
@@ -212,3 +213,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+form {
+    background-color: rgb(241,241,242);
+    border-radius: 10px;
+    border-color: rgb(209,213,219);
+    border-width: 1px;
+}
+</style>

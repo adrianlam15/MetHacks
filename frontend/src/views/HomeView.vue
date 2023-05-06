@@ -2,7 +2,6 @@
 import FeaturesView from '../views/FeaturesView.vue'
 import AboutView from '../views/AboutView.vue'
 import GenerateCardsView from '../views/GenerateCardsView.vue'
-import fun_underline from '../assets/fun-underline.svg'
 </script>
 
 <template>
@@ -123,7 +122,8 @@ import fun_underline from '../assets/fun-underline.svg'
       </div>
     </header>
 
-    <div class="relative isolate px-6 pt-14 lg:px-16">
+    <kinesis-container class="relative isolate px-6 pt-14 lg:px-16">
+      <kinesis-element>
       <div
         class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         aria-hidden="true"
@@ -155,7 +155,7 @@ import fun_underline from '../assets/fun-underline.svg'
       <div class="max-w-2xl py-32 sm:py-48 lg:py-64">
         <div class="text-start">
           <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Make your flash cards with <span class="font-bold text-indigo-600">ease</span>.
+            Make your flash cards with <span class="transition ease-in-out duration-100 font-bold text-indigo-600 hover:text-fuchsia-500">ease</span>.
           </h1>
           <img src="../assets/fun-underline.svg" class="ml-32 w-28" />
           <p class="mt-6 text-lg leading-8 text-gray-600">
@@ -180,7 +180,8 @@ import fun_underline from '../assets/fun-underline.svg'
           </div>
         </div>
       </div>
-    </div>
+    </kinesis-element>
+    </kinesis-container>
     <FeaturesView />
     <GenerateCardsView />
     <AboutView />
