@@ -114,17 +114,19 @@ const features = [
             </dl>
           </div>
         </div>
-        <div class="pdf-form flex justify-center items-center">
+        <div class="pdf-form flex justify-center items-center drop-shadow-sm">
         <form
           @submit.prevent="submitForm"
           enctype="multipart/form-data"
-          class="text-gray-900 font-bold flex flex-col items-center space-y-4 px-10 py-12"
+          class="text-gray-900 font-bold flex flex-col items-center space-y-4 p-10"
         >
           <label for="pdf" class="font-bold"> Upload your PDF: </label>
           <label for="pdf">
             <img :class="{'border-rose-500' : error,
-          'border-emerald-500' : uploadSuccess, 'border-indigo-700' : !error && !uploadSuccess}" src="../assets/add_files_re_v09g.svg" class="w-48 h-48 border-2 rounded-xl p-4" alt="Add files" />
+          'border-emerald-500' : uploadSuccess}" src="../assets/add_files_re_v09g.svg" class="w-48 h-48 border-2 rounded-xl p-4" alt="Add files" />
           </label>
+          <p v-if="error" class="text-rose-500 font-medium text-md">Error uploading PDf file.</p>
+          <p v-if="uploadSuccess" class="text-emerald-500 font-medium text-md">File uploaded successfully.</p>
           <input
             id="pdf"
             class="ml-28 font-medium py-2 px-4 focus:outline-none text-gray-600 flex"
