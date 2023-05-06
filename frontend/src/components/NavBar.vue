@@ -1,5 +1,5 @@
 <template>
-<nav class="flex items-center justify-between p-6 lg:px-8 z-50 w-screen" aria-label="Global">
+<nav class="fixed top-0 flex items-center justify-between p-6 lg:px-8 z-50 w-screen bg-white border-b" aria-label="Global">
         <div class="flex lg:flex-1">
           <RouterLink to="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Flash Cards Not Me!</span>
