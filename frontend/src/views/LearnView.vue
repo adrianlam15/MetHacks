@@ -23,7 +23,7 @@ const features = [
 </script>
 
 <template>
-  <div id="generate" class="relative isolate overflow-hidden sm:py-32 max-h-screen">
+  <div id="generate" class="relative isolate overflow-hidden sm:py-32 h-screen">
     <div
       class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
       aria-hidden="true"
@@ -82,9 +82,8 @@ const features = [
     </div>
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div
-        class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
-      >
-        <div class="lg:pr-8 lg:pt-4">
+        class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+        <div class="lg:pr-8 lg:pt-10">
           <div class="lg:max-w-lg">
             <h2 class="text-base font-semibold leading-7 text-indigo-600">Get started.</h2>
             <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -94,7 +93,7 @@ const features = [
               Upload your PDF file containing learning objectives and questions you have. We'll take
               care of the flash card generation and the fact look-ups.
             </p>
-            <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+            <dl class="mt-14 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
               <div v-for="feature in features" :key="feature.name" class="relative pl-9">
                 <dt class="inline font-semibold text-gray-900">
                   <component class="flex flex-col">
@@ -166,19 +165,23 @@ const features = [
       </div>
     </div>
   </div>
-  <div class="flashcard" :class="{'flipped': flipped}" @click="flip">
+  <!-- <div class="flashcard" :class="{'flipped': flipped}" @click="flip">
     <h1 v-if="!flipped">
       {{ front }}
     </h1>
     <h1 v-if="flipped">
       {{ back }}
     </h1>
-  </div>
-  <FlashCards/>
+  </div> -->
+  <hr class="w-3/4 m-auto border-gray-400"/>
+  <FlashCards :flashcards="flashcards"/>
 </template>
 
 <script>
 export default {
+  components() {
+    FlashCardsView
+  },
   data() {
     return {
       isLoading: false,
@@ -186,7 +189,8 @@ export default {
       error: false,
       front: "QUESTION",
       back: "ANSWER",
-      flipped: false
+      flipped: false,
+      flashcards: []
     }
   },
   methods: {
@@ -207,8 +211,7 @@ export default {
             this.uploadSuccess = true
             this.error = false
             response.json().then((data) => {
-              console.log(data)
-              console.log(data.content)
+              this.flashcards = data.cards
             })
           } else {
             console.log('Upload failed')
