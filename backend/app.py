@@ -12,9 +12,6 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 init()
 
-flashcards = []
-
-
 # COHERE_API_KEY = os.getenv("COHERE_API_KEY")
 # co = cohere.Client(COHERE_API_KEY)
 
@@ -40,6 +37,8 @@ def home():
 # Define the API endpoint for handling PDF uploads
 @app.route("/api/upload", methods=["POST"])
 def upload_file():
+    flashcards = []
+
     # check if the post request has the file part
     if "pdf" not in request.files:
         return jsonify({"error": "No file part in the request"}), 400
