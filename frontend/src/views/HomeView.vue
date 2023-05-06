@@ -4,7 +4,7 @@ import AboutView from '../views/AboutView.vue'
 </script>
 
 <template>
-  <div class="bg-white max-h-screen max-w-screen">
+  <div class="bg-white mt-20 max-h-screen max-w-screen">
     <header class="absolute inset-x-0 top-0">
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div class="lg:hidden" role="dialog" aria-modal="true">

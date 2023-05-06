@@ -1,5 +1,5 @@
 <template>
-  <div id="about" class="relative py-24 sm:py-32">
+  <div id="about" class="relative overflow-hidden py-24 sm:py-32">
     <div
       class="sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
       aria-hidden="true"

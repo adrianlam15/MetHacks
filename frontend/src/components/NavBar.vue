@@ -33,13 +33,14 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-          <RouterLink  to="/learn" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
-          transition ease-in-out"
-            >Learn</RouterLink>
-          <a href="#features" v-smooth-scroll class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
+            <a href="#features" v-smooth-scroll class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
           transition ease-in-out"
             >Features</a
           >
+          <RouterLink  to="/learn" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
+          transition ease-in-out"
+            >Learn<span class="animate-ping bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
+        <span class="bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span></RouterLink>
           <a v-smooth-scroll href="#about" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
           transition ease-in-out" 
             >About</a

@@ -1,5 +1,5 @@
 <template>
-  <div id="features" class="relative isolate py-24 sm:py-32">
+  <div id="features" class="relative overflow-hidden isolate py-24 sm:py-32 max-w-screen">
     <div
       class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
       aria-hidden="true"

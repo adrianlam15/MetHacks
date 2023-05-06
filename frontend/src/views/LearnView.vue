@@ -118,14 +118,16 @@ const features = [
         <form
           @submit.prevent="submitForm"
           enctype="multipart/form-data"
-          class="text-gray-900 font-bold flex flex-col items-center space-y-4 px-24 py-40"
+          class="text-gray-900 font-bold flex flex-col items-center space-y-4 px-10 py-12"
         >
           <label for="pdf" class="font-bold"> Upload your PDF: </label>
+          <label for="pdf">
+            <img :class="{'border-rose-500' : error,
+          'border-emerald-500' : uploadSuccess, 'border-indigo-700' : !error && !uploadSuccess}" src="../assets/add_files_re_v09g.svg" class="w-48 h-48 border-2 rounded-xl p-4" alt="Add files" />
+          </label>
           <input
-          :class="{'border-rose-500' : error, 'border-emerald-500' : uploadSuccess,
-        'border-indigo-700' : !error && !uploadSuccess}"
             id="pdf"
-            class="font-medium py-2 px-4 border-2 shadow-md rounded-lg focus:outline-none"
+            class="ml-28 font-medium py-2 px-4 focus:outline-none text-gray-600 flex"
             type="file"
             name="pdf"
             ref="pdf"
@@ -220,5 +222,9 @@ form {
     border-radius: 10px;
     border-color: rgb(209,213,219);
     border-width: 1px;
+}
+
+::file-selector-button {
+  display: none;
 }
 </style>
