@@ -1,34 +1,16 @@
-<script setup></script>
+<script setup>
+import FeaturesView from '../views/FeaturesView.vue'
+import AboutView from '../views/AboutView.vue'
+import GenerateCardsView from '../views/GenerateCardsView.vue';
+</script>
 
 <template>
-  <!-- <main id="home" class="flex items-center w-screen h-screen">
-    <div class="px-16 py-24 flex flex-row justify-between w-screen">
-      <div>
-        <div class="wrapper">
-          <h1 class="text-5xl">Study your flash cards with ease</h1>
-            <p class="mt-8">
-              Our flashcard generation tool allows you to create flashcards based off of the learning objectives of your course. All you need is a PDF of the content you want to study.
-            </p>
-            <div class="mt-8">
-                <RouterLink to="/generate">
-                  <button class="text-sm tracking-wider">
-                    Try it out
-                  </button>
-                  </RouterLink>
-            </div>
-        </div>
-      </div>
-      <div class="showcase-container">
-        SHOWCASE HERE
-      </div>
-    </div>
-  </main> -->
   <div class="bg-white max-h-screen max-w-screen">
   <header class="absolute inset-x-0 top-0 z-50">
     <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <RouterLink to="/" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
+          <span class="sr-only">Flash Cards Not Me!</span>
           <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
         </RouterLink>
       </div>
@@ -41,12 +23,12 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <RouterLink to="/generate" class="text-sm font-semibold leading-6 text-gray-900">Generate</RouterLink>
-        <RouterLink to="/features" class="text-sm font-semibold leading-6 text-gray-900">Features</RouterLink>
-        <RouterLink to="/about" class="text-sm font-semibold leading-6 text-gray-900">About</RouterLink>
+        <a v-smooth-scroll href="#generate" class="text-sm font-semibold leading-6 text-gray-900">Generate</a>
+        <a href="#features" v-smooth-scroll class="text-sm font-semibold leading-6 text-gray-900">Features</a>
+        <a v-smooth-scroll href="#about" class="text-sm font-semibold leading-6 text-gray-900">About</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        login
+        <!-- REPLACE LATER -->
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -56,7 +38,7 @@
       <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div class="flex items-center justify-between">
           <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
+            <span class="sr-only">Flash Cards Not Me</span>
             <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
           </a>
           <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
@@ -83,48 +65,24 @@
     </div>
   </header>
 
-  <div class="relative isolate px-6 pt-14 lg:px-8">
+  <div class="relative isolate px-6 pt-14 lg:px-16">
     <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
       <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
     </div>
-    <div class="max-w-2xl py-32 sm:py-48 lg:py-72">
+    <div class="max-w-2xl py-32 sm:py-48 lg:py-64">
       <div class="text-start">
         <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Make your flash cards with ease</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600">Our flashcard generation tool allows you to create flashcards based off of the learning objectives of your course. All you need is a PDF of the content you want to study.</p>
+        <p class="mt-6 text-lg leading-8 text-gray-600">Flash cards, not me! We know that making flash cards can be a hassle, so we made it easier for you. Our flashcard generation tool allows you to create flashcards based off of the learning objectives of your course. All you need is a PDF of the content you want to study.</p>
         <div class="mt-10 flex items-center justify-start gap-x-6">
-          <a href="#" class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Try it out</a>
-          <a href="#" class="transition hover:-translate-y-1 text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+          <a v-smooth-scroll href="#generate" class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Try it out</a>
+          <a v-smooth-scroll href="#about" class="transition hover:-translate-y-1 text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
   </div>
+  <FeaturesView />
+  <GenerateCardsView />
+  <AboutView />
 </div>
 
 </template>
-
-<style scoped>
-h1 {
-  font-weight: 1000;
-}
-
-
-.wrapper {
-  max-width: 600px;
-  margin: 0;
-}
-
-button {
-  background-color: rgb(79, 70, 229);
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  font-weight: 600;
-}
-
-.showcase-container {
-  background-color: #e6e6e7;
-}
-</style>
