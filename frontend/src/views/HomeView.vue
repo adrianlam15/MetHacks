@@ -2,6 +2,7 @@
 import FeaturesView from '../views/FeaturesView.vue'
 import AboutView from '../views/AboutView.vue'
 import GenerateCardsView from '../views/GenerateCardsView.vue';
+import fun_underline from '../assets/fun-underline.svg';
 </script>
 
 <template>
@@ -71,7 +72,8 @@ import GenerateCardsView from '../views/GenerateCardsView.vue';
     </div>
     <div class="max-w-2xl py-32 sm:py-48 lg:py-64">
       <div class="text-start">
-        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Make your flash cards with ease</h1>
+        <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Make your flash cards with <span class="font-bold text-indigo-600">ease</span>.</h1>
+        <img src="../assets/fun-underline.svg" class="ml-32 w-28"/>
         <p class="mt-6 text-lg leading-8 text-gray-600">Flash cards, not me! We know that making flash cards can be a hassle, so we made it easier for you. Our flashcard generation tool allows you to create flashcards based off of the learning objectives of your course. All you need is a PDF of the content you want to study.</p>
         <div class="mt-10 flex items-center justify-start gap-x-6">
           <a v-smooth-scroll href="#generate" class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Try it out</a>

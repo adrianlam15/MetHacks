@@ -1,22 +1,24 @@
 <script setup>
-//   import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/vue/20/solid'
-  
+import in_no_time from '../assets/in_no_time_-6-igu.svg'
+import check from '../assets/check.svg'
+import cloud_upload from '../assets/cloud-upload.svg'
+
   const features = [
     {
       name: 'Valid extension name.',
       description:
         'Make sure your file is a PDF file.',
-    //   icon: CloudArrowUpIcon,
+        icon: check,
     },
     {
       name: 'Upload.',
       description: 'Upload your PDF file using the form to the right and press `submit`.',
-    //   icon: LockClosedIcon,
+      icon: cloud_upload,
     },
     {
-      name: 'Wait',
+      name: 'Wait.',
       description: 'Wait while we generate your flash cards and get all the facts right for you.',
-    //   icon: ServerIcon,
+      icon: in_no_time,
     },
   ]
 </script>
@@ -39,9 +41,13 @@
               <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 <div v-for="feature in features" :key="feature.name" class="relative pl-9">
                   <dt class="inline font-semibold text-gray-900">
-                    <!-- <component :is="feature.icon" class="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />
-                    {{ feature.name }} -->
-                  </dt>
+                    <component class="flex flex-col">
+                        <img :src="feature.icon" class="absolute left-1 top-1  h-5 w-5" aria-hidden="true" />
+                        <p class="text-indigo-600">
+                            {{ feature.name }}
+                        </p>
+                    </component>
+                    </dt>
                   {{ ' ' }}
                   <dd class="inline">{{ feature.description }}</dd>
                 </div>
@@ -63,14 +69,28 @@
     name="pdf"
     ref="pdf"
   />
+  <!-- <button :class="{'animate-spin' : isLoading, 'hover:-translate-y-1' : !isLoading}"
+    type="submit"
+    class="transition ease-in-out rounded-md bg-indigo-600 text-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 py-2 px-4 shadow-md duration-300"
+  >
+    <p v-if="!isLoading" class="text-white font-medium">
+        Submit
+    </p>
+  </button> -->
   <button
     type="submit"
-    class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 text-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-white font-medium py-2 px-4 shadow-md duration-300"
+    class="w-20 flex justify-center transition ease-in-out rounded-md bg-indigo-600 text-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 py-2 px-4 shadow-md duration-300"
   >
-    Submit
+    <p v-if="!isLoading" class="text-white font-medium">
+        Submit
+    </p>
+    <svg v-if="isLoading" class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
   </button>
-</form>
 
+</form>
       <div v-if="uploadSuccess">UPLOADED SUCCESSFULLY</div>
       <div v-if="error">ERROR</div>
         </div>
@@ -79,10 +99,19 @@
   </template>
 
 <script>
+
 export default {
+    data() {
+        return {
+        isLoading: false,
+        uploadSuccess: false,
+        error: false
+    }
+}, 
   methods: {
     submitForm() {
       const formData = new FormData()
+      this.isLoading = true
       formData.append('pdf', this.$refs.pdf.files[0])
       fetch('http://127.0.0.1:5000/api/upload', {
         method: 'POST',
@@ -102,11 +131,13 @@ export default {
             this.uploadSuccess = false,
             this.error = true
           }
+          this.isLoading = false
         })
         .catch((error) => {
           console.error('Error:', error)
           this.uploadSuccess = false,
           this.error = true
+          this.isLoading = false
    })
 }}}
 </script>

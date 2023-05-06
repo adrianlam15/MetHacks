@@ -16,10 +16,13 @@
               <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 <div v-for="feature in features" :key="feature.name" class="relative pl-9">
                   <dt class="inline font-semibold text-gray-900">
-                    <!-- <component :is="feature.icon" class="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />
-                    {{ feature.name }} -->
+                    <component class="flex flex-col">
+                        <img :src="feature.icon" class="absolute -left-2  h-8 w-8" aria-hidden="true" />
+                        <p class="text-indigo-600">
+                            {{ feature.name }}
+                        </p>
+                    </component>
                   </dt>
-                  {{ ' ' }}
                   <dd class="inline">{{ feature.description }}</dd>
                 </div>
               </dl>
@@ -32,14 +35,15 @@
   </template>
   
   <script setup>
-//   import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/vue/20/solid'
+  import time_management from '../assets/time_management.svg'
+    import online_information_re_erks from '../assets/online_information_re_erks.svg'
   
   const features = [
     {
       name: 'Save time.',
       description:
         'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-    //   icon: CloudArrowUpIcon,
+      icon: time_management,
     },
     {
       name: 'Save effort.',
@@ -49,7 +53,11 @@
     {
       name: 'Get accurate information.',
       description: 'We use the latest tech to ensure that the info on the flash cards generated are up-to-date.',
-    //   icon: ServerIcon,
+      icon: online_information_re_erks,
     },
   ]
   </script>
+
+  <script>
+
+</script>
