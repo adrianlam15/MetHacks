@@ -128,14 +128,6 @@ const features = [
             name="pdf"
             ref="pdf"
           />
-          <!-- <button :class="{'animate-spin' : isLoading, 'hover:-translate-y-1' : !isLoading}"
-    type="submit"
-    class="transition ease-in-out rounded-md bg-indigo-600 text-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 py-2 px-4 shadow-md duration-300"
-  >
-    <p v-if="!isLoading" class="text-white font-medium">
-        Submit
-    </p>
-  </button> -->
           <button
             type="submit"
             class="w-20 flex justify-center transition ease-in-out rounded-md bg-indigo-600 text-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 py-2 px-4 shadow-md duration-300"
