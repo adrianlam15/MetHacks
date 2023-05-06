@@ -12,36 +12,37 @@ def init():
 
 def generate_cards(pdf, flashcards, text):
     # COMMENTED OUT TO AVOID USING API CREDITS
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt="Generate flash cards given this text, and minimize token usage:\n\n"
-        + text,
-        temperature=0,
-        max_tokens=200,
-        top_p=1,
-        frequency_penalty=0.5,
-        presence_penalty=0,
-    )
-    generated_text = response.choices[0]["text"]
+    # response = openai.Completion.create(
+    #     model="text-davinci-003",
+    #     prompt="Generate flash cards given this text, and minimize token usage:\n\n"
+    #     + text,
+    #     temperature=0,
+    #     max_tokens=200,
+    #     top_p=1,
+    #     frequency_penalty=0.5,
+    #     presence_penalty=0,
+    # )
+    # generated_text = response.choices[0]["text"]
 
-    # # TEST CASE
-    # response = {
-    #     "choices": [
-    #         {
-    #             "finish_reason": "stop",
-    #             "index": 0,
-    #             "logprobs": "null",
-    #             "text": "Flash Cards:\nQ1: What is the smallest planet in our Solar System?\nA1: Mercury\n\nQ2: How long does it take for light to reach the Earth from the Sun?\nA2: 8 minutes and 20 seconds.\n\nQ3: What is the largest moon in the Solar System?\nA3: Ganymede.\n\nQ4: What is the only planet in our Solar System known to have active plate tectonics?\nA4: Earth. \n\nQ5: What is the hottest planet in our Solar System? \nA5: Venus. \n\nQ6: What is the most abundant gas in Earth's atmosphere? \nA6: Nitrogen.",
-    #         }
-    #     ],
-    #     "created": 1683338309,
-    #     "id": "cmpl-7D1TpQJFKrB3Ez9JcCMx6LMGDMB9r",
-    #     "model": "text-davinci-003",
-    #     "object": "text_completion",
-    #     "usage": {"completion_tokens": 153, "prompt_tokens": 108, "total_tokens": 261},
-    # }
-    # generated_text = response["choices"][0]["text"]
+    # TEST CASE
+    response = {
+        "choices": [
+            {
+                "finish_reason": "stop",
+                "index": 0,
+                "logprobs": "null",
+                "text": "Flash Cards:\nQ1: What is the smallest planet in our Solar System?\nA1: Mercury\n\nQ2: How long does it take for light to reach the Earth from the Sun?\nA2: 8 minutes and 20 seconds.\n\nQ3: What is the largest moon in the Solar System?\nA3: Ganymede.\n\nQ4: What is the only planet in our Solar System known to have active plate tectonics?\nA4: Earth. \n\nQ5: What is the hottest planet in our Solar System? \nA5: Venus. \n\nQ6: What is the most abundant gas in Earth's atmosphere? \nA6: Nitrogen.",
+            }
+        ],
+        "created": 1683338309,
+        "id": "cmpl-7D1TpQJFKrB3Ez9JcCMx6LMGDMB9r",
+        "model": "text-davinci-003",
+        "object": "text_completion",
+        "usage": {"completion_tokens": 153, "prompt_tokens": 108, "total_tokens": 261},
+    }
+    generated_text = response["choices"][0]["text"]
     add_cards_to_list(generated_text, flashcards)
+    return flashcards
 
 
 def add_cards_to_list(generated_text, flashcards):
