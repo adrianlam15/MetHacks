@@ -63,6 +63,9 @@
 </template>
 
 <script>
+import { VueFlip } from 'vue-flip'
+// implement vue-flip
+
 export default {
   data() {
     return {
