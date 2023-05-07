@@ -7,9 +7,42 @@
     <p class="mt-6 text-lg leading-8 text-gray-600 w-96">
       Here's a list of flashcards that we thought you might find helpful based on your requests.
     </p>
+    <!-- vueflip -->
     <div class="mt-20 flex justify-center items-center flex-col">
-      <div>
-        <div
+      <vue-flip active-click>
+        <template v-slot:front
+        v-for="(card, index) in flashcards"
+        :key="index"
+        v-show="currentIndex === index"
+        >
+        {{ card.Q + currentIndex }}
+      </template>
+      <template v-slot:back
+        v-for="(card, index) in flashcards"
+        :key="index"
+        v-show="currentIndex === index"
+      >
+        {{ card.A }}
+      </template>
+      </vue-flip>
+
+      <div class="flex mt-4 justify-between w-1/6">
+        <button
+          @click="currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length"
+          class="transition hover:-translate-x-1 flex flex-row py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded-lg"
+        >
+          ← Previous
+        </button>
+        <button
+          @click="currentIndex = (currentIndex + 1) % flashcards.length"
+          class="transition hover:translate-x-1 flex flex-row py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded-lg"
+        >
+          Next →
+        </button>
+      </div> 
+
+      <!-- <vue-flip active-click>
+        <template v-slot:front
           v-for="(card, index) in flashcards"
           :key="index"
           v-show="currentIndex === index"
@@ -25,8 +58,8 @@
             <h1 class="p-2 text-3xl font-bold text-center">Question</h1>
             <p class="text-lg text-center">{{ card.Q }}</p>
           </div>
-        </div>
-        <div
+        </template>
+        <template v-slot:back
           v-for="(card, index) in flashcards"
           :key="index"
           v-show="currentIndex === index"
@@ -42,8 +75,8 @@
             <h1 class="p-2 text-3xl font-bold text-center">Answer</h1>
             <p class="text-lg text-center">{{ card.A }}</p>
           </div>
-        </div>
-      </div>
+        </template>
+      </vue-flip>
       <div class="flex mt-4 justify-between w-1/6">
         <button
           @click="currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length"
@@ -57,7 +90,7 @@
         >
           Next →
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -82,6 +115,9 @@ export default {
       type: Array,
       required: true
     }
+  },
+  components: {
+    VueFlip
   }
 }
 </script>
