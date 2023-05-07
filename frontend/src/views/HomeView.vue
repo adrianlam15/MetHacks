@@ -1,9 +1,11 @@
 <script setup>
 import FeaturesView from '../views/FeaturesView.vue'
 import AboutView from '../views/AboutView.vue'
+import NavBar from '../components/NavBar.vue'
 </script>
 
 <template>
+    <NavBar />
   <div class="bg-white mt-20 max-h-screen max-w-screen">
     <header class="absolute inset-x-0 top-0">
       <!-- Mobile menu, show/hide based on menu open state. -->
@@ -18,7 +20,7 @@ import AboutView from '../views/AboutView.vue'
               <span class="sr-only">Flash Cards Not Me</span>
               <img
                 class="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="../assets/undraw_sticky-note.svg"
                 alt=""
               />
             </a>

@@ -1,11 +1,12 @@
 <template>
+    <!-- add props so the navbar routes change according to page -->
 <nav class="fixed top-0 flex items-center justify-between p-6 lg:px-8 z-50 w-screen bg-white border-b" aria-label="Global">
         <div class="flex lg:flex-1">
           <RouterLink to="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Flash Cards Not Me!</span>
             <img
               class="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              src="../assets/logo.svg"
               alt=""
             />
           </RouterLink>
@@ -41,7 +42,7 @@
           transition ease-in-out"
             >Learn<span class="animate-ping bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
         <span class="bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span></RouterLink>
-          <a v-smooth-scroll href="/#about" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
+          <a v-smooth-scroll href="#about" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600
           transition ease-in-out" 
             >About</a
           >
