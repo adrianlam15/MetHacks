@@ -226,8 +226,6 @@ const features = [
       </div>
     </div>
   </div>
-  <span class="animate-ping bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
-  <span class="bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
   <a class="animate-bounce" href="#flashcards" v-smooth-scroll>
     <img
       v-if="flashcards"

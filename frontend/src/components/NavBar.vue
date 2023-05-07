@@ -53,7 +53,12 @@
       >
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <!-- REPLACE LATER -->
+      <RouterLink to="/login" class="pr-10 text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
+        Login
+      </RouterLink>
+      <RouterLink to="/register" class="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
+        Register
+      </RouterLink>
     </div>
   </nav>
 </template>
