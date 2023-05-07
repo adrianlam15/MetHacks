@@ -106,10 +106,55 @@ import NavBar from '../components/NavBar.vue'
       </div>
     </kinesis-element>
     </kinesis-container>
+    <!-- SHOW PREVIEW OF CARD FLIPPING ON HOME -->
+    <!-- <div class="mt-20 flex justify-center items-center flex-col">
+        <div>
+        <div v-for="(card, index) in flashcards" :key="index" v-show="currentIndex === index"
+               :class="{
+                 'hidden': card.flipped,
+                 'visible-100': !card.flipped
+               }"
+               >
+            <div @click="flipCard(card)" class="border-gray-600 border-2 py-4 px-6 rounded-lg w-96 h-52">
+              <h1 class="p-2 text-3xl font-bold text-center">Question</h1>
+              <p class="text-lg text-center">{{ card.Q }}</p>
+            </div>
+          </div>
+          <div v-for="(card, index) in flashcards" :key="index"
+               v-show="currentIndex === index"
+               :class="{
+                 'hidden': !card.flipped,
+                 'visible': card.flipped
+               }"
+               >
+            <div @click="flipCard(card)" class="border-gray-600 border-2 py-4 px-6 rounded-lg w-96 h-52">
+              <h1 class="p-2 text-3xl font-bold text-center">Answer</h1>
+              <p class="text-lg text-center">{{ card.A }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex mt-4 justify-between w-1/6 ">
+          <button @click="currentIndex = (currentIndex - 1 + flashcards.length) % flashcards.length"
+                  class="transition hover:-translate-x-1 flex flex-row py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded-lg">
+            ← Previous 
+          </button>
+          <button @click="currentIndex = (currentIndex + 1) % flashcards.length"
+                  class="transition hover:translate-x-1 flex flex-row py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded-lg">
+            Next →
+          </button>
+        </div>
+    </div> -->
     <FeaturesView />
     <AboutView />
   </div>
 </template>
+
+<script>
+const flashcards = {
+  Q: "What is the capital of Canada?",
+  A: "Ottawa",
+}
+</script>
 
 <style scoped>
 img {
