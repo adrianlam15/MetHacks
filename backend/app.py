@@ -62,8 +62,8 @@ def upload_file():
         )
     # pass the file object to the function to extract text
     text = extract_text(file)
-    cards = generate_cards(file, flashcards, text)
-    return jsonify({"prompt": text, "cards": cards}), 200
+    generate_cards(flashcards, text)
+    return jsonify({"prompt": text, "cards": flashcards}), 200
 
 
 # check if a file is allowed based on its file extension
