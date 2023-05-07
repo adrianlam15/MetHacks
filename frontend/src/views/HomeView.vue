@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar.vue'
 
 <template>
   <NavBar />
-  <div class="bg-white mt-20 max-h-screen max-w-screen">
+  <div class="bg-white mt-20 min-h-screen max-w-screen">
     <header class="absolute inset-x-0 top-0">
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div class="lg:hidden" role="dialog" aria-modal="true">
@@ -145,7 +145,10 @@ import NavBar from '../components/NavBar.vue'
           </button>
         </div>
     </div> -->
+  <hr class="w-3/4 m-auto border-gray-400" />
     <FeaturesView />
+  <hr class="w-3/4 m-auto border-gray-400" />
+
     <AboutView />
   </div>
 </template>

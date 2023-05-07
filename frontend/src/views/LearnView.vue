@@ -78,62 +78,6 @@ const features = [
     </div>
   </nav>
   <div id="generate" class="relative isolate overflow-hidden sm:py-32">
-    <div
-      class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
-      aria-hidden="true"
-    >
-      <div
-        class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-        style="
-          clip-path: polygon(
-            74.1% 44.1%,
-            100% 61.6%,
-            97.5% 26.9%,
-            85.5% 0.1%,
-            80.7% 2%,
-            72.5% 32.5%,
-            60.2% 62.4%,
-            52.4% 68.1%,
-            47.5% 58.3%,
-            45.2% 34.5%,
-            27.5% 76.7%,
-            0.1% 64.9%,
-            17.9% 100%,
-            27.6% 76.8%,
-            76.1% 97.7%,
-            74.1% 44.1%
-          );
-        "
-      />
-    </div>
-    <div
-      class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
-      aria-hidden="true"
-    >
-      <div
-        class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-        style="
-          clip-path: polygon(
-            74.1% 44.1%,
-            100% 61.6%,
-            97.5% 26.9%,
-            85.5% 0.1%,
-            80.7% 2%,
-            72.5% 32.5%,
-            60.2% 62.4%,
-            52.4% 68.1%,
-            47.5% 58.3%,
-            45.2% 34.5%,
-            27.5% 76.7%,
-            0.1% 64.9%,
-            17.9% 100%,
-            27.6% 76.8%,
-            76.1% 97.7%,
-            74.1% 44.1%
-          );
-        "
-      />
-    </div>
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div
         class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -262,7 +206,7 @@ export default {
       const formData = new FormData()
       this.isLoading = true
       formData.append('pdf', this.$refs.pdf.files[0])
-      fetch('http://127.0.0.1:5000/api/upload', {
+      fetch('http://127.0.0.1:5000/api/generate', {
         method: 'POST',
         body: formData
       })
