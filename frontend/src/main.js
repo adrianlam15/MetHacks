@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueSmoothScroll from 'vue3-smooth-scroll'
-import VueKinesis from "vue-kinesis";
+import VueKinesis from 'vue-kinesis'
 
 import './assets/base.css'
 

@@ -5,7 +5,7 @@ import NavBar from '../components/NavBar.vue'
 </script>
 
 <template>
-    <NavBar />
+  <NavBar />
   <div class="bg-white mt-20 max-h-screen max-w-screen">
     <header class="absolute inset-x-0 top-0">
       <!-- Mobile menu, show/hide based on menu open state. -->
@@ -18,11 +18,7 @@ import NavBar from '../components/NavBar.vue'
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Flash Cards Not Me</span>
-              <img
-                class="h-8 w-auto"
-                src="../assets/undraw_sticky-note.svg"
-                alt=""
-              />
+              <img class="h-8 w-auto" src="../assets/undraw_sticky-note.svg" alt="" />
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
               <span class="sr-only">Close menu</span>
@@ -77,34 +73,39 @@ import NavBar from '../components/NavBar.vue'
 
     <kinesis-container class="relative isolate px-6 pt-14 lg:px-16">
       <kinesis-element>
-      <div class="max-w-2xl py-32 sm:py-48">
-        <div class="text-start">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Make your flash cards with <span class="transition ease-in-out duration-100 font-bold text-indigo-600 hover:text-fuchsia-500">ease</span>.
-          </h1>
-          <img src="../assets/fun-underline.svg" class="w-28" />
-          <p class="pt-6 text-lg leading-8 text-gray-600">
-            Flash cards, not me! We know that making flash cards can be a hassle, so we made it
-            easier for you. Our flashcard generation tool allows you to create flashcards based off
-            of the learning objectives of your course. All you need is a PDF of the content you want
-            to study.
-          </p>
-          <div class="pt-10 flex items-center justify-start gap-x-6">
-            <RouterLink to="/learn"
-            class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Try it out
-            </RouterLink>
-            <a
-              v-smooth-scroll
-              href="#features"
-              class="transition hover:-translate-y-1 text-sm font-semibold leading-6 text-gray-900"
-              >About <span aria-hidden="true">→</span></a
-            >
+        <div class="max-w-2xl py-32 sm:py-48">
+          <div class="text-start">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              Make your flash cards with
+              <span
+                class="transition ease-in-out duration-100 font-bold text-indigo-600 hover:text-fuchsia-500"
+                >ease</span
+              >.
+            </h1>
+            <img src="../assets/fun-underline.svg" class="w-28" />
+            <p class="pt-6 text-lg leading-8 text-gray-600">
+              Flash cards, not me! We know that making flash cards can be a hassle, so we made it
+              easier for you. Our flashcard generation tool allows you to create flashcards based
+              off of the learning objectives of your course. All you need is a PDF of the content
+              you want to study.
+            </p>
+            <div class="pt-10 flex items-center justify-start gap-x-6">
+              <RouterLink
+                to="/learn"
+                class="transition ease-in-out hover:-translate-y-1 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                Try it out
+              </RouterLink>
+              <a
+                v-smooth-scroll
+                href="#features"
+                class="transition hover:-translate-y-1 text-sm font-semibold leading-6 text-gray-900"
+                >About <span aria-hidden="true">→</span></a
+              >
+            </div>
           </div>
         </div>
-      </div>
-    </kinesis-element>
+      </kinesis-element>
     </kinesis-container>
     <!-- SHOW PREVIEW OF CARD FLIPPING ON HOME -->
     <!-- <div class="mt-20 flex justify-center items-center flex-col">
@@ -151,8 +152,8 @@ import NavBar from '../components/NavBar.vue'
 
 <script>
 const flashcards = {
-  Q: "What is the capital of Canada?",
-  A: "Ottawa",
+  Q: 'What is the capital of Canada?',
+  A: 'Ottawa'
 }
 </script>
 

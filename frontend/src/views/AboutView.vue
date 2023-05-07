@@ -60,8 +60,8 @@
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-4xl font-bold tracking-tight text-black sm:text-6xl">About us</h2>
         <p class="mt-6 text-lg leading-8 text-gray-600">
-          We're a team of passionate university students who want to help other students use resources that can greatly 
-          improve their learning experience.
+          We're a team of passionate university students who want to help other students use
+          resources that can greatly improve their learning experience.
         </p>
       </div>
       <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
