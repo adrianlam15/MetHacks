@@ -79,7 +79,7 @@ const headers = [
                     {{ header.name }}
                 </h1>
                 <div class="flex flex-col mt-2">
-                    <a v-for="(link, index2) in header.links " class="mt-1 text-slate-700 font-medium mr-auto hover:text-slate-400 transition ease-in-out" :href="link.route">
+                    <a v-for="(link, index2) in header.links " class="mt-1 text-slate-400 font-medium mr-auto hover:text-slate-200 transition ease-in-out" :href="link.route">
                         {{  link.name }}
                     </a>
                 </div>

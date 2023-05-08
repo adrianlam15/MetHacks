@@ -45,12 +45,13 @@
         >Learn<span class="animate-ping bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
         <span class="bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span
       ></RouterLink>
-      <a
-        v-smooth-scroll
-        href="#about"
+      <RouterLink to="/dashboard" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
+        Dashboard
+      </RouterLink>
+      <RouterLink
+        to="/about"
         class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out"
-        >About</a
-      >
+        >About</RouterLink>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <RouterLink to="/login" class="pr-10 text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
