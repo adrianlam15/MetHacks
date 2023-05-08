@@ -84,7 +84,7 @@ import NavBar from '../components/NavBar.vue'
             </h1>
             <img src="../assets/fun-underline.svg" class="w-28" />
             <p class="pt-6 text-lg leading-8 text-gray-600">
-              Flash cards, not me! We know that making flash cards can be a hassle, so we made it
+              We know that making flash cards can be a hassle, so we made it
               easier for you. Our flashcard generation tool allows you to create flashcards based
               off of the learning objectives of your course. All you need is a PDF of the content
               you want to study.
@@ -147,9 +147,6 @@ import NavBar from '../components/NavBar.vue'
     </div> -->
   <hr class="w-3/4 m-auto border-gray-400" />
     <FeaturesView />
-  <hr class="w-3/4 m-auto border-gray-400" />
-
-    <AboutView />
   </div>
 </template>
 

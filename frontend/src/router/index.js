@@ -29,12 +29,66 @@ const router = createRouter({
       name: 'register',
       component: () => import('../views/RegisterView.vue')
     },
-    {
-      path: '/forgot-password',
-      name: 'forgot-password',
-      component: () => import('../views/ForgotPasswordView.vue')
-    }
-
+    // {
+    //   path: '/forgot-password',
+    //   name: 'forgot-password',
+    //   component: () => import('../views/ForgotPasswordView.vue')
+    // },
+    // {
+    //   path: '/reset-password',
+    //   name: 'reset-password',
+    //   component: () => import('../views/ResetPasswordView.vue')
+    // },
+    // {
+    //   path: '/about',
+    //   name: 'about',
+    //   component: () => import('../views/AboutView.vue')
+    // },
+    // {
+    //   path: '/contact',
+    //   name: 'contact',
+    //   component: () => import('../views/ContactView.vue')
+    // },
+    // {
+    //   path: '/pricing',
+    //   name: 'pricing',
+    //   component: () => import('../views/PricingView.vue')
+    // },
+    // {
+    //   path: '/careers',
+    //   name: 'careers',
+    //   component: () => import('../views/CareersView.vue')
+    // },
+    // {
+    //   path: '/privacy',
+    //   name: 'privacy',
+    //   component: () => import('../views/PrivacyView.vue')
+    // },
+    // {
+    //   path: '/blog',
+    //   name: 'blog',
+    //   component: () => import('../views/BlogView.vue')
+    // },
+    // {
+    //   path: '/team',
+    //   name: 'team',
+    //   component: () => import('../views/TeamView.vue')
+    // },
+    // {
+    //   path: '/support',
+    //   name: 'support',
+    //   component: () => import('../views/SupportView.vue')
+    // },
+    // {
+    //   path: '/privacy-policy',
+    //   name: 'privacy-policy',
+    //   component: () => import('../views/PrivacyPolicyView.vue')
+    // },
+    // {
+    //   path: '/terms-of-use',
+    //   name: 'terms-of-use',
+    //   component: () => import('../views/TermsOfUseView.vue')
+    // },
   ]
 })
 
