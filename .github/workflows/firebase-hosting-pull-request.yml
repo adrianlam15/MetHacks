@@ -15,3 +15,4 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_SMARTCARDS_9E663 }}"
           projectId: smartcards-9e663
+          entryPoint: frontend/build
