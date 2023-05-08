@@ -1,5 +1,5 @@
 <template>
-    <div class="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div @click.prevent="reset" class="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <img class="mx-auto h-10 w-auto" src="../assets/logo.svg" alt="SmartCard" />
         <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
@@ -79,6 +79,9 @@
       }
     },
     methods: {
+      reset() {
+        this.loginFailed = false
+      },
       submitForm() {
         this.isLoading = true
         signInWithEmailAndPassword(auth, this.email, this.password)
