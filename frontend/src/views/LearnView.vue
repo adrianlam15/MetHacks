@@ -203,8 +203,8 @@ export default {
       this.flipped = !this.flipped
     },
     submitForm() {
-      const formData = new FormData()
       this.isLoading = true
+      const formData = new FormData()
       formData.append('pdf', this.$refs.pdf.files[0])
       fetch('http://127.0.0.1:5000/api/generate', {
         method: 'POST',
@@ -220,14 +220,15 @@ export default {
             })
           } else {
             console.log('Upload failed')
-            ;(this.uploadSuccess = false), (this.error = true)
+            this.uploadSuccess = false
+            this.error = true
           }
           this.isLoading = false
         })
         .catch((error) => {
+          this.isLoading = false
           console.error('Error:', error)
           ;(this.uploadSuccess = false), (this.error = true)
-          this.isLoading = false
         })
     }
   }

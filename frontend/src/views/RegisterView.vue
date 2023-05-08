@@ -10,7 +10,7 @@
           <div>
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
             <div class="mt-2">
-              <input :class="{ 'ring-rose-500 ring-2' : emailInUse || emailInvalid}" v-model="email" id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required="true" class="px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              <input :class="{ 'ring-rose-500 ring-1' : emailInUse || emailInvalid}" v-model="email" id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required="true" class="px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
   
@@ -19,7 +19,7 @@
               <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
             </div>
             <div class="mt-2">
-              <input :class="{ 'ring-rose-500 ring-2' : error || weakPassword}" v-model="password" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              <input :class="{ 'ring-rose-500 ring-1' : error || weakPassword}" v-model="password" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
 
@@ -83,18 +83,18 @@
         // add email validation
         this.isLoading = true
         if (this.password !== this.retypePassword) {
+          this.isLoading = false
           this.error = true
           alert('Passwords do not match')
-          this.isLoading = false
           return
         }
         this.error = false
         createUserWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
+        this.isLoading = false
         // Signed in 
         const user = userCredential.user;
         // ...
-      this.isLoading = false
       })
       .catch((error) => {
         this.isLoading = false
