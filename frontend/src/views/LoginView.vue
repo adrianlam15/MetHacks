@@ -89,6 +89,7 @@
           this.isLoading = false
           // Signed in 
           const user = userCredential.user;
+          console.log(user.uid)
           // ...
         })
         .catch((error) => {

@@ -150,6 +150,7 @@ import NavBar from '../components/NavBar.vue'
 </template>
 
 <script>
+// preview cards
 const flashcards = {
   Q: 'What is the capital of Canada?',
   A: 'Ottawa'

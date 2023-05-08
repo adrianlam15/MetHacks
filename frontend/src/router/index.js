@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { auth, onAuthStateChanged } from '../main.js'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +34,12 @@ const router = createRouter({
       path: '/dashboard',
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue')
-    }
+    },
+{
+      path: '/dashboard/insights',
+      name: 'insights',
+      component: () => import('../views/InsightsView.vue')
+}
     // {
     //   path: '/forgot-password',
     //   name: 'forgot-password',
@@ -96,5 +102,23 @@ const router = createRouter({
     // },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log("User is logged in")
+      console.log(user)
+      if (to.name === 'login' || to.name === 'register') {
+        next({ name: 'home' })
+      } else {
+        next()
+      }
+    } else {
+      next()
+    }
+  })
+})
+
+
 
 export default router

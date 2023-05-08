@@ -46,10 +46,6 @@ const headers = [
                 route: '#'
             },
             {
-                name: 'Instagram',
-                route: '#'
-            },
-            {
                 name: 'LinkedIn',
                 route: '#'
             }

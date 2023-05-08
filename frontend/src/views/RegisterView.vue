@@ -28,7 +28,7 @@
                 <label for="retype-password" class="block text-sm font-medium leading-6 text-gray-900">Retype Password</label>
             </div>
             <div class="mt-2">
-                <input :class="{ 'ring-rose-500 ring-2' : error || weakPassword}" v-model="retypePassword" id="retype-password" name="retypePassword" type="password" placeholder="Retype your password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                <input :class="{ 'ring-rose-500 ring-1' : error || weakPassword}" v-model="retypePassword" id="retype-password" name="retypePassword" type="password" placeholder="Retype your password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
         
@@ -80,9 +80,9 @@
     },
     methods: {
       reset() {
-        emailInUse = false,
-        emailInvalid = false,
-        weakPassword = false
+        this.emailInUse = false,
+        this.emailInvalid = false,
+        this.weakPassword = false
       },
       submitForm() {
         // add email validation
@@ -105,10 +105,15 @@
         this.isLoading = false
         const errorCode = error.code;
         const errorMessage = error.message;
-        if (errorCode == "auth/email-already-in-use") {
+        if (this.email === '' || this.password === '' || this.retypePassword === '') {
+          this.emailInUse = false
+          this.emailInvalid = true
+          this.weakPassword = true
+          return
+        } else if (errorCode == "auth/email-already-in-use") {
           this.emailInUse = true
         } else if (errorCode == "auth/invalid-email") {
-          this.emailInvalid
+          this.emailInvalid = true;
         } else if (errorCode == "auth/weak-password") {
           this.weakPassword = true
         }
