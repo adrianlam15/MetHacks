@@ -1,6 +1,5 @@
 <script setup>
 import FeaturesView from '../views/FeaturesView.vue'
-import AboutView from '../views/AboutView.vue'
 import NavBar from '../components/NavBar.vue'
 </script>
 
@@ -18,7 +17,7 @@ import NavBar from '../components/NavBar.vue'
           <div class="flex items-center justify-between">
             <a href="#" class="-m-1.5 p-1.5">
               <span class="sr-only">Flash Cards Not Me</span>
-              <img class="h-8 w-auto" src="../assets/undraw_sticky-note.svg" alt="" />
+              <img class="h-8 w-auto" src="../assets/logo.svg" alt="" />
             </a>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
               <span class="sr-only">Close menu</span>
