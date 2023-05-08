@@ -10,7 +10,7 @@
           <div>
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
             <div class="mt-2">
-              <input v-model="email" id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required="true" class="px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              <input :class="{ 'ring-rose-500 ring-2' : emailInUse || emailInvalid}" v-model="email" id="email" name="email" type="email" autocomplete="email" placeholder="Enter your email" required="true" class="px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
   
@@ -19,8 +19,7 @@
               <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
             </div>
             <div class="mt-2">
-              <input :class="{ 'ring-rose-500' : error,
-              'ring-2' : error}" v-model="password" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              <input :class="{ 'ring-rose-500 ring-2' : error || weakPassword}" v-model="password" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
 
@@ -29,13 +28,13 @@
                 <label for="retype-password" class="block text-sm font-medium leading-6 text-gray-900">Retype Password</label>
             </div>
             <div class="mt-2">
-                <input :class="{ 'ring-rose-500' : error,
-              'ring-2' : error}" v-model="retypePassword" id="retype-password" name="retypePassword" type="password" placeholder="Retype your password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                <input :class="{ 'ring-rose-500 ring-2' : error || weakPassword}" v-model="retypePassword" id="retype-password" name="retypePassword" type="password" placeholder="Retype your password" required="true" class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
             </div>
           </div>
-  
+        
           <div>
-            <button @click.prevent="submitForm" type="submit" class="hover:-translate-y-1 transition ease-in-out flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><p v-if="!isLoading">Register</p>
+            <button @click.prevent="submitForm" type="submit" class="hover:-translate-y-1 transition ease-in-out flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <p v-if="!isLoading">Register</p>
               <svg
                 v-if="isLoading"
                 class="animate-spin h-5 w-5 text-white"
@@ -64,6 +63,8 @@
   </template>
 
   <script>
+  import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+  const auth = getAuth();
   export default {
     data() {
       return {
@@ -71,29 +72,43 @@
         password: '',
         retypePassword: '',
         error: false,
-        isLoading: false
+        isLoading: false,
+        emailInUse: false,
+        emailInvalid: false,
+        weakPassword: false
       }
     },
     methods: {
       submitForm() {
         // add email validation
+        this.isLoading = true
         if (this.password !== this.retypePassword) {
           this.error = true
           alert('Passwords do not match')
+          this.isLoading = false
           return
         }
         this.error = false
-        console.log(this.email, this.password)
-        fetch('http://127.0.0.1:5000/api/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password
-          })
-        }).then(response => console.log(response))
+        createUserWithEmailAndPassword(auth, this.email, this.password)
+        .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // ...
+      this.isLoading = false
+      })
+      .catch((error) => {
+        this.isLoading = false
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode == "auth/email-already-in-use") {
+          this.emailInUse = true
+        } else if (errorCode == "auth/invalid-email") {
+          this.emailInvalid
+        } else if (errorCode == "auth/weak-password") {
+          this.weakPassword = true
+        }
+
+      });
       }
     },
   }
