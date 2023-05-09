@@ -67,7 +67,9 @@
 
   <script>
   import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+  import { useRouter } from "vue-router";
   const auth = getAuth();
+  const router = useRouter();
 
   export default {
     data() {
@@ -83,14 +85,15 @@
         this.loginFailed = false
       },
       submitForm() {
+        this.loginFailed = false
         this.isLoading = true
         signInWithEmailAndPassword(auth, this.email, this.password)
         .then((userCredential) => {
           this.isLoading = false
           // Signed in 
           const user = userCredential.user;
-          console.log(user.uid)
-          // ...
+          this.loginFailed = false
+          this.$router.push('/')
         })
         .catch((error) => {
           this.isLoading = false

@@ -106,14 +106,17 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log("User is logged in")
-      console.log(user)
       if (to.name === 'login' || to.name === 'register') {
         next({ name: 'home' })
       } else {
         next()
       }
     } else {
+      if (to.name === 'dashboard') {
+        next({ name: 'login' })
+      } else {
+        next()
+      }
       next()
     }
   })
