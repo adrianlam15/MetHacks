@@ -44,7 +44,7 @@ def upload_file():
         return jsonify({"error": "No file part in the request"}), 400
 
     file = request.files["pdf"]
-
+    
     # if user does not select file, browser also
     # submit an empty part without filename
     if file.filename == "":

@@ -8,7 +8,7 @@ import VueKinesis from 'vue-kinesis'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signInWithRedirect } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -39,4 +39,4 @@ app.use(VueSmoothScroll)
 app.use(VueKinesis)
 app.mount('#app')
 
-export { auth, onAuthStateChanged }
+export { auth, onAuthStateChanged, signInWithRedirect }
