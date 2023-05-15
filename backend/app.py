@@ -35,7 +35,7 @@ def home():
 
 
 # Define the API endpoint for handling PDF uploads
-@app.route("/api/upload", methods=["POST"])
+@app.route("/api/generate", methods=["POST"])
 def upload_file():
     flashcards = []
 
