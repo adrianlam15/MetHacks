@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <!-- add props so the navbar routes change according to page -->
@@ -48,23 +47,40 @@
         >Learn<span class="animate-ping bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span>
         <span class="bg-indigo-700 absolute top-8 w-2 h-2 rounded-full"></span
       ></RouterLink>
-      <RouterLink to="/dashboard" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
+      <RouterLink
+        to="/dashboard"
+        class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out"
+      >
         Dashboard
       </RouterLink>
       <RouterLink
         to="/about"
         class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out"
-        >About</RouterLink>
+        >About</RouterLink
+      >
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <RouterLink v-if="!authenticated" to="/login" class="pr-10 text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
+      <RouterLink
+        v-if="!authenticated"
+        to="/login"
+        class="pr-10 text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out"
+      >
         Login
-        </RouterLink>
-        <RouterLink v-if="!authenticated" to="/register" class="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
-          Register
-        </RouterLink>
-        <RouterLink v-if="authenticated" @click="signOut()" to="/" class="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out">
-          Sign out
+      </RouterLink>
+      <RouterLink
+        v-if="!authenticated"
+        to="/register"
+        class="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out"
+      >
+        Register
+      </RouterLink>
+      <RouterLink
+        v-if="authenticated"
+        @click="signOut()"
+        to="/"
+        class="text-md font-semibold leading-6 text-gray-900 hover:text-indigo-600 transition ease-in-out"
+      >
+        Sign out
       </RouterLink>
     </div>
   </nav>
@@ -75,33 +91,33 @@ import { auth, onAuthStateChanged } from '../main.js'
 export default {
   data() {
     return {
-      authenticated: false,
+      authenticated: false
     }
   },
   created() {
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-          console.log('logged in')
-          this.authenticated = true
-        } else {
-          console.log('not logged in')
-          this.authenticated = false
-        }
-      })
+      if (user) {
+        console.log('logged in')
+        this.authenticated = true
+      } else {
+        console.log('not logged in')
+        this.authenticated = false
+      }
+    })
   },
   methods: {
     signOut() {
-      auth.signOut()
+      auth
+        .signOut()
         .then(() => {
           // Redirect the user to the login page or do any other post-signout action
           console.log('signed out')
           this.authenticated = false
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error)
         })
+    }
   }
 }
-}
-
 </script>

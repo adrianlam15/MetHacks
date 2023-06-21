@@ -10,20 +10,22 @@
     <!-- vueflip -->
     <div class="mt-20 flex justify-center items-center flex-col">
       <vue-flip active-click>
-        <template v-slot:front
-        v-for="(card, index) in flashcards"
-        :key="index"
-        v-show="currentIndex === index"
+        <template
+          v-slot:front
+          v-for="(card, index) in flashcards"
+          :key="index"
+          v-show="currentIndex === index"
         >
-        {{ card.Q + currentIndex }}
-      </template>
-      <template v-slot:back
-        v-for="(card, index) in flashcards"
-        :key="index"
-        v-show="currentIndex === index"
-      >
-        {{ card.A }}
-      </template>
+          {{ card.Q + currentIndex }}
+        </template>
+        <template
+          v-slot:back
+          v-for="(card, index) in flashcards"
+          :key="index"
+          v-show="currentIndex === index"
+        >
+          {{ card.A }}
+        </template>
       </vue-flip>
 
       <div class="flex mt-4 justify-between w-1/6">
@@ -39,7 +41,7 @@
         >
           Next →
         </button>
-      </div> 
+      </div>
 
       <!-- <vue-flip active-click>
         <template v-slot:front

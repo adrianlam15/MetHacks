@@ -35,11 +35,11 @@ const router = createRouter({
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue')
     },
-{
+    {
       path: '/dashboard/insights',
       name: 'insights',
       component: () => import('../views/InsightsView.vue')
-}
+    }
     // {
     //   path: '/forgot-password',
     //   name: 'forgot-password',
@@ -121,7 +121,5 @@ router.beforeEach((to, from, next) => {
     }
   })
 })
-
-
 
 export default router

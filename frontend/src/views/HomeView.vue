@@ -83,10 +83,9 @@ import NavBar from '../components/NavBar.vue'
             </h1>
             <img src="../assets/fun-underline.svg" class="w-28" />
             <p class="pt-6 text-lg leading-8 text-gray-600">
-              We know that making flash cards can be a hassle, so we made it
-              easier for you. Our flashcard generation tool allows you to create flashcards based
-              off of the learning objectives of your course. All you need is a PDF of the content
-              you want to study.
+              We know that making flash cards can be a hassle, so we made it easier for you. Our
+              flashcard generation tool allows you to create flashcards based off of the learning
+              objectives of your course. All you need is a PDF of the content you want to study.
             </p>
             <div class="pt-10 flex items-center justify-start gap-x-6">
               <RouterLink
@@ -144,7 +143,7 @@ import NavBar from '../components/NavBar.vue'
           </button>
         </div>
     </div> -->
-  <hr class="w-3/4 m-auto border-gray-400" />
+    <hr class="w-3/4 m-auto border-gray-400" />
     <FeaturesView />
   </div>
 </template>
